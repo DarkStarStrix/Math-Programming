@@ -1,0 +1,179 @@
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 13:02:14 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  *Variable declaration
+   2  Variable
+   3       x1   Number of comedy ads purchased
+   4       x2   Number of football ads purchased
+   5   
+   6       z    Objective function value
+   7   
+   8  ;
+   9   
+  10  *Objective function defitition
+  11  Equation     obj    Obejective function;
+  12               obj..  z =e= 50*x1 + 100*x2;
+  13   
+  14  *Contraint definition
+  15  Equation     eq1    Constraint 1;
+  16               eq1..  7*x1 + 2*x2 =g= 28;
+  17   
+  18  Equation     eq2    Constaint 2;
+  19               eq2..  2*x1 + 12*x2 =g= 24;
+  20   
+  21  *Model assemly
+  22  model example_1 /all/;
+  23   
+  24  *Solver option
+  25  option lp = cplex;
+  26   
+  27  *Solve statement
+  28  solve example_1 using lp minimization z;
+  29   
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  44.1.0 ab065035 WEX-WEI
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 13:02:14 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE example_1 Using LP From line 28
+
+
+---- obj  =E=  Obejective function
+
+obj..  - 50*x1 - 100*x2 + z =E= 0 ; (LHS = 0)
+     
+
+---- eq1  =G=  Constraint 1
+
+eq1..  7*x1 + 2*x2 =G= 28 ; (LHS = 0, INFES = 28 ****)
+     
+
+---- eq2  =G=  Constaint 2
+
+eq2..  2*x1 + 12*x2 =G= 24 ; (LHS = 0, INFES = 24 ****)
+     
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 13:02:14 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE example_1 Using LP From line 28
+
+
+---- x1  Number of comedy ads purchased
+
+x1
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+      -50       obj
+        7       eq1
+        2       eq2
+
+
+---- x2  Number of football ads purchased
+
+x2
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+     -100       obj
+        2       eq1
+       12       eq2
+
+
+---- z  Objective function value
+
+z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       obj
+
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 13:02:14 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE example_1 Using LP From line 28
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 2.400E+01, 2.800E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA]
+Matrix    [min, max] : [ 1.000E+00, 1.000E+02]
+
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 13:02:14 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE example_1 Using LP From line 28
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           3     SINGLE EQUATIONS            3
+BLOCKS OF VARIABLES           3     SINGLE VARIABLES            3
+NON ZERO ELEMENTS             7
+
+
+GENERATION TIME      =        0.032 SECONDS      3 MB  44.1.0 ab065035 WEX-WEI
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 13:02:14 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE example_1 Using LP From line 28
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   example_1           OBJECTIVE  z
+     TYPE    LP                  DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  28
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+**** OBJECTIVE VALUE              320.0000
+
+ RESOURCE USAGE, LIMIT          0.031 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+--- *** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+
+--- LP status (1): optimal.
+--- Cplex Time: 0.03sec (det. 0.00 ticks)
+
+
+Optimal solution found
+Objective:          320.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU obj                 .              .              .             1.0000      
+---- EQU eq1               28.0000        28.0000        +INF            5.0000      
+---- EQU eq2               24.0000        24.0000        +INF            7.5000      
+
+  obj  Obejective function
+  eq1  Constraint 1
+  eq2  Constaint 2
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR x1                -INF            3.6000        +INF             .          
+---- VAR x2                -INF            1.4000        +INF             .          
+---- VAR z                 -INF          320.0000        +INF             .          
+
+  x1  Number of comedy ads purchased
+  x2  Number of football ads purchased
+  z  Objective function value
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.391 SECONDS      3 MB  44.1.0 ab065035 WEX-WEI
+
+
+USER: GAMS Demo, for EULA and demo limitations see   G230706/0001CB-GEN
+      https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\kunya\OneDrive\Documents\Programming projects\1_LP\Example_1.gms
+Output     C:\Users\kunya\OneDrive\Documents\Programming projects\1_LP\Example_1.lst

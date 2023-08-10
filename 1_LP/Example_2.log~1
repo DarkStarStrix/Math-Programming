@@ -1,0 +1,30 @@
+
+--- Job Example_2.gms Start 08/10/23 15:52:08 44.1.0 ab065035 WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\44\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input "C:\Users\kunya\OneDrive\Documents\Programming projects\1_LP\Example_2.gms"
+    PageSize 0
+    ScrDir "C:\Users\kunya\OneDrive\Documents\Programming projects\1_LP\225a\"
+    SysDir C:\GAMS\44\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: GAMS Demo, for EULA and demo limitations see   G230706/0001CB-GEN
+          https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+          C:\GAMS\44\gamslice.txt
+          Demo license for demonstration and instructional purposes only
+Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
+GAMS 44.1.0   Copyright (C) 1987-2023 GAMS Development. All rights reserved
+--- Starting compilation
+--- Example_2.gms(57) 2 Mb 1 Error
+*** Error 150 in C:\Users\kunya\OneDrive\Documents\Programming projects\1_LP\Example_2.gms
+    Symbolic equations redefined
+--- Example_2.gms(67) 2 Mb 2 Errors
+*** Error 257 in C:\Users\kunya\OneDrive\Documents\Programming projects\1_LP\Example_2.gms
+    Solve statement not checked because of previous errors
+--- Example_2.gms(68) 2 Mb 2 Errors
+*** Status: Compilation error(s)
+--- Job Example_2.gms Stop 08/10/23 15:52:08 elapsed 0:00:00.011

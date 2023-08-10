@@ -1,0 +1,52 @@
+B 3 C o m p i l a t i o n
+B 79 Equation Listing    SOLVE example_2 Using LP From line 67
+D 82 obj
+D 87 eq1
+D 92 eq2
+D 97 eq3
+D 102 eq4
+D 107 eq5
+D 112 eq6
+D 117 eq7
+D 122 eq8
+D 127 eq9
+D 132 eq10
+D 137 eq11
+D 142 eq12
+D 147 eq13
+D 152 eq14
+B 158 Column Listing      SOLVE example_2 Using LP From line 67
+E 161 x1
+E 174 x2
+E 187 x3
+E 200 x4
+E 213 x5
+E 226 x6
+E 239 x7
+E 252 z
+B 260 Range Statistics    SOLVE example_2 Using LP From line 67
+B 271 Model Statistics    SOLVE example_2 Using LP From line 67
+B 284 Solution Report     SOLVE example_2 Using LP From line 67
+F 317 obj
+F 318 eq1
+F 319 eq2
+F 320 eq3
+F 321 eq4
+F 322 eq5
+F 323 eq6
+F 324 eq7
+F 325 eq8
+F 326 eq9
+F 327 eq10
+F 328 eq11
+F 329 eq12
+F 330 eq13
+F 331 eq14
+G 351 x1
+G 352 x2
+G 353 x3
+G 354 x4
+G 355 x5
+G 356 x6
+G 357 x7
+G 358 z

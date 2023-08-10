@@ -1,0 +1,18 @@
+B 3 C o m p i l a t i o n
+B 40 Equation Listing    SOLVE example_1 Using LP From line 28
+D 43 obj
+D 48 eq1
+D 53 eq2
+B 59 Column Listing      SOLVE example_1 Using LP From line 28
+E 62 x1
+E 71 x2
+E 80 z
+B 88 Range Statistics    SOLVE example_1 Using LP From line 28
+B 99 Model Statistics    SOLVE example_1 Using LP From line 28
+B 112 Solution Report     SOLVE example_1 Using LP From line 28
+F 145 obj
+F 146 eq1
+F 147 eq2
+G 155 x1
+G 156 x2
+G 157 z

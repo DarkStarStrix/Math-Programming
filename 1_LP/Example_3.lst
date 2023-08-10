@@ -1,0 +1,198 @@
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 16:53:52 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  *Set declaraction
+   2  Sets
+   3     c  /HIW
+   4         HIm/
+   5     a  /comedy
+   6         football/;
+   7   
+   8  *Variable declaration
+   9  Variables
+  10          x(a)    Number of ads of type a to be purcahsed
+  11   
+  12          z       Objective Function value;
+  13   
+  14  *Parameter declaration
+  15  Parameter
+  16          theta(a)     Cost of Running ad of type a
+  17          /comedy 50
+  18           football    100/;
+  19  Table
+  20          mu(a,c)      Number of viewers for ad of type a from customer base c
+  21   
+  22                HIW   HIM
+  23  comedy        7     2
+  24  football      2     12;
+  25   
+  26  Parameter
+  27          alpha(c)    Minimum viewership from customer base c
+  28          /HIW    28
+  29          HIm     24/;
+  30   
+  31  *Objective function definition
+  32  Equation    obj     Objective function;
+  33              obj..   z =e= sum(a,theta(a)*x(a));
+  34   
+  35  *Constraint definition
+  36  Equation    eq1(c)  Constrait 1;
+  37              eq1(c)..  sum(a,mu(a,c)*x(a)) =g= alpha(c);
+  38   
+  39  *Model assembly
+  40  model example_3 /all/;
+  41   
+  42  *Solver option
+  43  option lp = cplex;
+  44   
+  45  *Solve Statement
+  46  solve example_3 using lp minimization z;
+  47   
+  48   
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  44.1.0 ab065035 WEX-WEI
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 16:53:52 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE example_3 Using LP From line 46
+
+
+---- obj  =E=  Objective function
+
+obj..  - 50*x(comedy) - 100*x(football) + z =E= 0 ; (LHS = 0)
+     
+
+---- eq1  =G=  Constrait 1
+
+eq1(HIW)..  7*x(comedy) + 2*x(football) =G= 28 ; (LHS = 0, INFES = 28 ****)
+     
+eq1(HIm)..  2*x(comedy) + 12*x(football) =G= 24 ; (LHS = 0, INFES = 24 ****)
+     
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 16:53:52 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE example_3 Using LP From line 46
+
+
+---- x  Number of ads of type a to be purcahsed
+
+x(comedy)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+      -50       obj
+        7       eq1(HIW)
+        2       eq1(HIm)
+
+x(football)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+     -100       obj
+        2       eq1(HIW)
+       12       eq1(HIm)
+
+
+---- z  Objective Function value
+
+z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       obj
+
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 16:53:52 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE example_3 Using LP From line 46
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 2.400E+01, 2.800E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA]
+Matrix    [min, max] : [ 1.000E+00, 1.000E+02]
+
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 16:53:52 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE example_3 Using LP From line 46
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            3
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
+NON ZERO ELEMENTS             7
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  44.1.0 ab065035 WEX-WEI
+GAMS 44.1.0  ab065035 Jul 20, 2023          WEX-WEI x86 64bit/MS Windows - 08/10/23 16:53:52 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE example_3 Using LP From line 46
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   example_3           OBJECTIVE  z
+     TYPE    LP                  DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  46
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+**** OBJECTIVE VALUE              320.0000
+
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+--- *** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+
+--- LP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.00 ticks)
+
+
+Optimal solution found
+Objective:          320.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU obj                 .              .              .             1.0000      
+
+  obj  Objective function
+
+---- EQU eq1  Constrait 1
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+HIW        28.0000        28.0000        +INF            5.0000      
+HIm        24.0000        24.0000        +INF            7.5000      
+
+---- VAR x  Number of ads of type a to be purcahsed
+
+                LOWER          LEVEL          UPPER         MARGINAL
+
+comedy          -INF            3.6000        +INF             .          
+football        -INF            1.4000        +INF             .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR z                 -INF          320.0000        +INF             .          
+
+  z  Objective Function value
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.281 SECONDS      4 MB  44.1.0 ab065035 WEX-WEI
+
+
+USER: GAMS Demo, for EULA and demo limitations see   G230706/0001CB-GEN
+      https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\kunya\OneDrive\Documents\Programming projects\1_LP\Example_3.gms
+Output     C:\Users\kunya\OneDrive\Documents\Programming projects\1_LP\Example_3.lst

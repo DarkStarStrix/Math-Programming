@@ -1,0 +1,14 @@
+B 3 C o m p i l a t i o n
+B 59 Equation Listing    SOLVE example_3 Using LP From line 46
+D 62 obj
+D 67 eq1
+B 75 Column Listing      SOLVE example_3 Using LP From line 46
+E 78 x
+E 93 z
+B 101 Range Statistics    SOLVE example_3 Using LP From line 46
+B 112 Model Statistics    SOLVE example_3 Using LP From line 46
+B 125 Solution Report     SOLVE example_3 Using LP From line 46
+F 158 obj
+F 162 eq1
+G 169 x
+G 178 z

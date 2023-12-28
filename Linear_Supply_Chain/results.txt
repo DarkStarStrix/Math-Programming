@@ -1,0 +1,9 @@
+Transport A from Warehouse1 to Store1: 80.0
+Transport B from Warehouse1 to Store1: 100.0
+Transport A from Warehouse1 to Store2: 0.0
+Transport B from Warehouse1 to Store2: 50.0
+Transport A from Warehouse2 to Store1: 0.0
+Transport B from Warehouse2 to Store1: 0.0
+Transport A from Warehouse2 to Store2: 120.0
+Transport B from Warehouse2 to Store2: 100.0
+Total Cost = 1575.0

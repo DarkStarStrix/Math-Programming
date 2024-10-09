@@ -1,12 +1,16 @@
 # Explanation: of the Code written in the codebase of the project
 
 ## Outlining the goals of the project
-This project aims to create a unified resource for all who are interested in operations research and Each topic contains a brief overview, a list of resources, and a list of related topics. The project is open source and contributions are welcome.
+This project aims to create a unified resource for all who are interested in operation research,
+and Each topic contains a brief overview, a list of resources, and a list of related topics.
+The project is open source and contributions are welcome.
 
 ## Linear Programming Model in GAMS
 GAMS (General Algebraic Modeling System) and defines a linear programming model. The goal is to determine the optimal number of comedy and football ads to purchase to minimize the objective function value, subject to given constraints.
 
-First, the code declares three variables: `x1`, `x2`, and `z`. `x1` represents the number of comedy ads purchased, `x2` represents the number of football ads purchased, and `z` is the objective function value.
+First, the code declares three variables: `x1`, `x2`, and `z`.
+`X1` represents the number of comedy ads purchased,
+`x2` represents the number of football ads purchased, and `z` is the objective function value.
 
 ```gams
 Variable
@@ -51,7 +55,7 @@ In summary, this GAMS code sets up a linear programming model to minimize the co
 ## Linear Programming Model 2 in GAMS
 This code is written in GAMS (General Algebraic Modeling System) and defines a linear programming model to determine the optimal number of workers starting on each day of the week to minimize the total number of workers, while satisfying daily requirements.
 
-First, the code declares eight variables: `x1` through `x7` represent the number of workers beginning work on each day from Monday to Sunday, respectively. The variable `z` represents the objective function value, which is the total number of workers.
+First, the code declares eight variables: `x1` through `x7` represents the number of workers beginning work on each day from Monday to Sunday, respectively. The variable `z` represents the objective function value, which is the total number of workers.
 
 ```gams
 Variable
@@ -110,7 +114,11 @@ solve example_2 using lp minimization z;
 In summary, this GAMS code sets up a linear programming model to minimize the total number of workers while satisfying the daily requirements for each day of the week.
 
 ## Linear Programming Model 3 in GAMS
-This code is written in GAMS (General Algebraic Modeling System) and defines a linear programming model to determine the optimal number of ads to purchase for two types of ads: comedy and football. The objective is to minimize the total cost while meeting the minimum viewership requirements from two customer bases: HIW and HIM.
+This code is written in GAMS (General Algebraic Modeling System)
+and defines a linear programming model to determine the optimal number of ads to purchase for two types of ads:
+comedy and football.
+The goal is to minimize the total cost while meeting the minimum viewership requirements from two customer bases:
+HIW and HIM.
 
 First, the code declares two sets: `c` for customer bases and `a` for ad types. The customer bases are `HIW` and `HIM`, and the ad types are `comedy` and `football`.
 
@@ -122,7 +130,7 @@ Sets
        football/;
 ```
 
-Next, the code declares two variables: `x(a)` represents the number of ads of type `a` to be purchased, and `z` is the objective function value, which represents the total cost.
+Next, the code declares two variables: `x(a)` represents the number ads of type `a` to be purchased, and `z` is the objective function value, which represents the total cost.
 
 ```gams
 Variables
@@ -139,7 +147,7 @@ Parameter
          football    100/;
 ```
 
-A table `mu(a,c)` is defined to represent the number of viewers for each ad type from each customer base. For example, a comedy ad reaches 7 viewers from HIW and 2 from HIM, while a football ad reaches 2 viewers from HIW and 12 from HIM.
+A table `mu(a,c)` is defined to represent the number of viewers for each ad type from each customer base. For example, a comedy ad reaches seven viewers from HIW and 2 from HIM, while a football ad reaches 2 viewers from HIW and 12 from HIM.
 
 ```gams
 Table
@@ -150,7 +158,8 @@ comedy        7     2
 football      2     12;
 ```
 
-Another parameter `alpha(c)` is declared to represent the minimum viewership required from each customer base. HIW requires a minimum of 28 viewers, and HIM requires 24.
+Another parameter `alpha(c)` is declared to represent the minimum viewership required from each customer base.
+HIW requires a minimum of 28 viewers, and he requires 24.
 
 ```gams
 Parameter
@@ -189,7 +198,7 @@ solve example_3 using lp minimization z;
 In summary, this GAMS code sets up a linear programming model to minimize the cost of purchasing ads while satisfying the minimum viewership requirements for two customer bases.
 
 ## Networking Optimization Model 
-The selected code is a Python script that visualizes a network design using the `matplotlib` library. It imports necessary modules and data from a module named `Networking`, which includes a model and locations.
+The selected code is a Python script that visualizes a network design using the `matplotlib` library. It imports the necessary modules and data from a module named `Networking`, which includes a model and locations.
 
 First, the script defines the coordinates and coverage areas for each location. The `location_coords` dictionary maps each location to its respective (x, y) coordinates, while the `coverage_areas` dictionary specifies the coverage area for each location.
 
@@ -198,7 +207,7 @@ location_coords = {'Loc1': (1, 1), 'Loc2': (2, 3), 'Loc3': (3, 2)}
 coverage_areas = {'Loc1': 100, 'Loc2': 200, 'Loc3': 150}
 ```
 
-Next, the script gathers the node build decisions and capacities from the model. The `node_build_decisions` dictionary stores whether a node is built at each location, and the `node_capacities` dictionary stores the capacity of each node.
+Next, the script gathers the node builds decisions and capacities from the model. The `node_build_decisions` dictionary stores whether a node is built at each location, and the `node_capacities` dictionary stores the capacity of each node.
 
 ```python
 node_build_decisions = {loc: model.build_node[loc].value for loc in locations}
@@ -412,7 +421,7 @@ In summary, this script defines a `DeliveryOptimizer` class to solve and visuali
 ## Linear supply chain 
 The selected code is a Python script that uses the Pyomo library to solve a linear optimization problem for supply chain management. The goal is to minimize the total cost of transporting products from warehouses to stores while satisfying supply and demand constraints.
 
-First, the script imports necessary modules from Pyomo, including `ConcreteModel`, `Var`, `Objective`, `Constraint`, `NonNegativeReals`, `minimize`, and `value`. It also imports `SolverFactory` to solve the optimization model.
+First, the script imports the necessary modules from Pyomo, including `ConcreteModel`, `Var`, `Objective`, `Constraint`, `NonNegativeReals`, `minimize`, and `value`. It also imports `SolverFactory` to solve the optimization model.
 
 ```python
 from pyomo.environ import ConcreteModel, Var, Objective, Constraint, NonNegativeReals, minimize, value
@@ -448,7 +457,7 @@ supply_limits = {('Warehouse1', 'A'): 100, ('Warehouse1', 'B'): 150, ('Warehouse
 demand_requirements = {('Store1', 'A'): 80, ('Store1', 'B'): 100, ('Store2', 'A'): 120, ('Store2', 'B'): 150}
 ```
 
-The objective function is defined using the `Objective` function. The `objective_rule` function calculates the total cost, which includes transportation and storage costs. The objective is to minimize this total cost.
+The objective function is defined using the `Objective` function. The `objective_rule` function calculates the total cost, which includes transportation and storage costs. The goal is to minimize this total cost.
 
 ```python
 def objective_rule(model):
@@ -501,7 +510,7 @@ In summary, this script sets up and solves a linear optimization problem to mini
 ## Non convex optimization energy dispatch
 The selected code is a Python script that uses the Pyomo library to solve a non-convex optimization problem for energy dispatch. The goal is to minimize the total cost of energy production from various sources while meeting the demand and adhering to generation limits.
 
-First, the script imports necessary modules from Pyomo and Plotly. Pyomo is used for defining and solving the optimization model, while Plotly is used for visualizing the results.
+First, the script imports the necessary modules from Pyomo and Plotly. Pyomo is used for defining and solving the optimization model, while Plotly is used for visualizing the results.
 
 ```python
 from pyomo.environ import *
@@ -527,7 +536,7 @@ Decision variables are defined using the `Var` function, representing the amount
 self.model.energy = Var(self.sources, domain=NonNegativeReals)
 ```
 
-The objective function is defined using the `Objective` function. The `cost_rule` method calculates the total cost by summing the cost functions for each source. The objective is to minimize this total cost.
+The objective function is defined using the `Objective` function. The `cost_rule` method calculates the total cost by summing the cost functions for each source. The goal is to minimize this total cost.
 
 ```python
 self.model.cost = Objective(rule=self.cost_rule, sense=minimize)
@@ -563,7 +572,7 @@ In summary, this script defines an `EnergyDispatch` class to solve a non-convex 
 ## Non linear optimization for manufacturing
 The selected code is a Python script that visualizes production rates and resource allocations for a manufacturing optimization model using `matplotlib`. The script imports the necessary modules and data from `Nonlinear_Optimization`, which includes the optimization model and machine data.
 
-First, the script defines a list of products, `products`, which includes 'P1' and 'P2'. It then prepares the data for visualization by extracting the production rates for each product from the optimization model. This is done using a list comprehension that iterates over the products and retrieves the production values.
+First, the script defines a list of products, `products`, which includes 'P1' and 'P2.' It then prepares the data for visualization by extracting the production rates for each product from the optimization model. This is done using a list comprehension that iterates over the products and retrieves the production values.
 
 ```python
 products = ['P1', 'P2']
@@ -602,7 +611,7 @@ In summary, this script visualizes the production rates and resource allocations
 ## Quadratic optimization for portfolio management
 The selected code is a Python script that uses the Pyomo library to solve a quadratic optimization problem for investment portfolio selection. The goal is to minimize the variance of the portfolio while achieving a target return.
 
-First, the script imports necessary modules from Pyomo and NumPy. Pyomo is used for defining and solving the optimization model, while NumPy is used for handling arrays and matrices.
+First, the script imports the necessary modules from Pyomo and NumPy. Pyomo is used for defining and solving the optimization model, while NumPy is used for handling arrays and matrices.
 
 ```python
 from pyomo.environ import *
@@ -634,7 +643,11 @@ Decision variables are defined using the `Var` function. The `model.x` variable 
 model.x = Var(range(n), domain=NonNegativeReals)
 ```
 
-The objective function is defined using the `Objective` function. The `portfolio_variance` function calculates the total variance of the portfolio by summing the products of the covariance matrix elements and the decision variables. The objective is to minimize this variance.
+The objective function is defined using the `Objective` function.
+The `portfolio_variance`
+function calculates the total variance of the portfolio
+by summing the products of the covariance matrix elements and the decision variables.
+The goal is to minimize this variance.
 
 ```python
 def portfolio_variance(model):
@@ -676,7 +689,7 @@ In summary, this script sets up and solves a quadratic optimization problem to m
 ## Scheduling integer programming
 The selected code is a Python script that uses the Pyomo library to solve an integer programming problem for employee shift scheduling. The goal is to minimize staffing costs while meeting shift requirements and respecting employee availability.
 
-First, the script imports necessary modules from Pyomo and the `pickle` module for saving results. It defines example data, including lists of shifts and employees, and dictionaries for availability, shift requirements, and staffing costs.
+First, the script imports the necessary modules from Pyomo and the `pickle` module for saving results. It defines example data, including lists of shifts and employees, and dictionaries for availability, shift requirements, and staffing costs.
 
 ```python
 from pyomo.environ import *
@@ -700,7 +713,10 @@ model = ConcreteModel()
 model.working = Var(employees, shifts, domain=Binary)
 ```
 
-The objective function is defined using the `Objective` function. The `objective_rule` function calculates the total staffing cost by summing the products of the decision variables and the staffing costs. The objective is to minimize this total cost.
+The objective function is defined using the `Objective` function.
+The `objective_rule`
+function calculates the total staffing cost by summing the products of the decision variables and the staffing costs.
+The goal is to minimize this total cost.
 
 ```python
 def objective_rule(model):
@@ -741,7 +757,7 @@ In summary, this script sets up and solves an integer programming problem to min
 ## Stochastic optimization for inventory management
 The selected code is a Python script that uses the Pyomo library to solve a stochastic optimization problem for inventory management. The goal is to minimize the total cost, which includes holding, ordering, and shortage costs, while considering storage capacity and demand scenarios.
 
-First, the script imports necessary modules from Pyomo, NumPy, SciPy, Matplotlib, and Plotly. Pyomo is used for defining and solving the optimization model, NumPy and SciPy for handling arrays and statistical functions, and Matplotlib and Plotly for visualizing the results.
+First, the script imports the necessary modules from Pyomo, NumPy, SciPy, Matplotlib, and Plotly. Pyomo is used for defining and solving the optimization model, NumPy and SciPy for handling arrays and statistical functions, and Matplotlib and Plotly for visualizing the results.
 
 ```python
 from pyomo.environ import ConcreteModel, Var, NonNegativeReals, Objective, minimize, Constraint
@@ -774,7 +790,10 @@ self.model.reorder_point = Var(self.products, domain=NonNegativeReals)
 self.model.order_quantity = Var(self.products, domain=NonNegativeReals)
 ```
 
-The objective function is defined using the `Objective` function. The `expected_cost_rule` method calculates the total cost, which includes shortage costs, ordering costs, and holding costs. The objective is to minimize this total cost.
+The objective function is defined using the `Objective` function.
+The `expected_cost_rule` method calculates the total cost,
+which includes shortage costs, ordering costs, and holding costs.
+The goal is to minimize this total cost.
 
 ```python
 self.model.total_cost = Objective(rule=self.expected_cost_rule, sense=minimize)
@@ -825,8 +844,104 @@ def solve(self):
 
 In summary, this script defines an `InventoryManagement` class to solve a stochastic optimization problem for inventory management using Pyomo. The class includes methods to set up the model, define the objective function and constraints, solve the model, and visualize the results.
 
+## Particle Swarm Optimization for warehouse location
+The provided code implements a Particle Swarm Optimization (PSO) algorithm to find the optimal location for a warehouse, considering the positions of stores and residential areas. The code uses the `matplotlib` library to visualize the optimization process and convergence of the fitness values.
+
+First, the code sets up the problem parameters, including the grid size,
+number of stores, residential areas, particles, and iterations.
+It also defines the PSO parameters such as inertia weight (`w`), cognitive parameter (`c1`), and social parameter
+(`c2`).
+
+```python
+grid_size = 100
+num_stores = 20
+num_residential_areas = 10
+num_particles = 50
+num_iterations = 100
+convergence_threshold = 1e-6
+convergence_patience = 50
+
+w = 0.5
+c1 = 1
+c2 = 2
+```
+
+Helper functions are defined to generate random locations,
+calculate distances, and compute the fitness of a given position.
+The fitness function considers the distances to stores and residential areas,
+applying a penalty for being too close to residential areas.
+
+```python
+def calculate_fitness(position, stores, residential_areas):
+    store_distances = [distance(position, store) for store in stores]
+    residential_distances = [distance(position, area) for area in residential_areas]
+    penalty = sum(max(0, 15 - d) * 2000 for d in residential_distances)
+    return sum(store_distances) + penalty
+```
+
+The particles are initialized with random positions and velocities. The personal best positions and fitness values for each particle are also initialized. The global best position and fitness are determined from the personal bests.
+
+```python
+particles = generate_random_locations(num_particles)
+velocities = np.zeros_like(particles)
+personal_best_positions = particles.copy()
+personal_best_fitness = np.array([calculate_fitness(p, stores, residential_areas) for p in particles])
+global_best_position = personal_best_positions[np.argmin(personal_best_fitness)]
+global_best_fitness = np.min(personal_best_fitness)
+```
+
+A heatmap is created to visualize the fitness landscape,
+and the main plot is set up to display the positions of stores,
+residential areas, particles, and the best position found so far.
+
+```python
+fig_main, ax_main = plt.subplots(figsize=(10, 8))
+colors = ['darkblue', 'blue', 'lightblue', 'yellow', 'orange', 'red']
+cmap = LinearSegmentedColormap.from_list('custom', colors, N=1000)
+
+im = ax_main.imshow(Z, extent=[0, grid_size, 0, grid_size], origin='lower', cmap=cmap, alpha=0.7)
+plt.colorbar(im, ax=ax_main, label='Fitness (lower is better)')
+```
+
+The convergence plot is set up to track the best and average fitness values over iterations.
+The `update` function is defined to update the positions and velocities of the particles,
+update the personal and global bests, and update the plots.
+
+```python
+fig_convergence, ax_convergence = plt.subplots(figsize=(10, 6))
+convergence_line, = ax_convergence.plot([], [], 'b-', linewidth=2, label='Best Fitness')
+average_fitness_line, = ax_convergence.plot([], [], 'r-', linewidth=2, label='Average Fitness')
+```
+
+The `update` function also checks for convergence by monitoring the recent improvements in the best fitness values. If the improvements are below the threshold for a specified number of iterations, the optimization stops.
+
+```python
+if len(best_fitness_history) > convergence_patience:
+    recent_improvements = np.diff(best_fitness_history[-convergence_patience:])
+    if np.all(np.abs(recent_improvements) < convergence_threshold):
+        print("Convergence reached. Stopping optimization.")
+        anim_main.event_source.stop()
+        anim_convergence.event_source.stop()
+```
+
+Finally, the animations for the main plot and convergence plot are created and saved as GIFs.
+The final optimal warehouse location and fitness value are printed.
+
+```python
+anim_main = FuncAnimation(fig_main, update, frames=num_iterations, interval=200, blit=False, repeat=False)
+anim_convergence = FuncAnimation(fig_convergence, update, frames=num_iterations, interval=200, blit=False, repeat=False)
+
+anim_main.save('warehouse_optimization_main.gif', writer=writer_main)
+anim_convergence.save('warehouse_optimization_convergence.gif', writer=writer_convergence)
+
+print(f"Final optimal warehouse location: {global_best_position}")
+print(f"Final optimal fitness value: {global_best_fitness}")
+```
+
 ## Conclusion
 The selected code snippets demonstrate the application of optimization techniques in various domains, including linear programming, integer programming, quadratic optimization, and stochastic optimization. These optimization models address real-world problems such as supply chain management, vehicle routing, energy dispatch, employee scheduling, portfolio management, and inventory management. By using optimization libraries like GAMS, Pyomo, and OR-Tools, these scripts provide efficient solutions to complex decision-making problems, helping organizations optimize their resources, reduce costs, and improve operational efficiency. The visualization components in the scripts enhance the understanding and interpretation of the optimization results, making them more accessible to stakeholders. Overall, these code snippets showcase the versatility and power of optimization techniques in solving diverse optimization problems across different industries.
-and as we can see here in the code snippets, the optimization techniques are used in different domains and they are very helpful in solving real-world problems.
-if you want to see the results of the code snippets you can run the code snippets in your local machine or you can contact me to provide you with the results of the code snippets.
-and my results are in the folder of the respective problem.
+And as we can see here in the code snippets, the optimization techniques are used in different domains, and they are very helpful in solving real-world problems.
+If you want to see the results of the code snippets, you can run the code snippets on your local machine, or you can contact me to provide you with the results of the code snippets.
+And my results are in the folder of the respective problem.
+
+
